@@ -25,6 +25,7 @@ int errno = 0;
 typedef unsigned long size_t;
 typedef long ssize_t;
 
+// Inspired by musl: https://git.musl-libc.org/cgit/musl/tree/arch/x86_64/syscall_arch.h
 __attribute__((used)) static inline long syscall0(int sysno) {
 	long r = sysno;
 	asm("syscall" : "+a"(r) :: "rcx", "r11", "memory");
